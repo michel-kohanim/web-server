@@ -2,18 +2,7 @@ var express = require('express');
 var app = express();
 var port = 3000;
 
-var middleWare = {
-	requireAuthentication: function(req, res, next)
-	{
-		console.log('Private route hit!');
-		next();
-	},
-	logger: function(req, res, next){
-		console.log(new Date().toString() + ' : - Request:' + req.method + ' ' + req.originalUrl); 
-		next();
-	}
-};
-
+var middleWare = require('./middleware.js');
 //commit git
 
 app.use(middleWare.logger);
